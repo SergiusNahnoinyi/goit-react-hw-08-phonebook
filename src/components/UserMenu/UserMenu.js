@@ -11,8 +11,13 @@ export default function UserMenu() {
         width={32}
       />
       <span className={s.name}>Добро пожаловать, User</span>
-      <button type="button" title="Log out" aria-label="Log out">
-        Logout
+      <button
+        className={s.button}
+        type="button"
+        title="Log out"
+        aria-label="Log out"
+      >
+        Log out
       </button>
     </div>
   );

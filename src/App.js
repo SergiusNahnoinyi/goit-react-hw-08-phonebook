@@ -1,27 +1,26 @@
-import { ToastContainer } from 'react-toastify';
+import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
-import ContactsForm from './components/ContactsForm';
-import Filter from './components/Filter';
-import ContactsList from './components/ContactsList';
 
-import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
+const HomePage = lazy(() => import('./pages/HomePage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
 
 export default function App() {
   return (
     <Container>
       <AppBar />
-      <section className="phonebook">
-        <h1 className="title">Phonebook</h1>
-        <ContactsForm />
-
-        <h2 className="title">Contacts</h2>
-        <Filter />
-        <ContactsList />
-        <ToastContainer />
-      </section>
+      <Suspense fallback="Loading...">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Suspense>
     </Container>
   );
 }
