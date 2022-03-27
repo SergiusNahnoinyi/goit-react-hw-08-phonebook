@@ -19,6 +19,7 @@ export default function UserMenu() {
       <span className={s.name}>Добро пожаловать, {name}</span>
       <button
         className={s.button}
+        onClick={() => dispatch(authOperations.logOut())}
         type="button"
         title="Log out"
         aria-label="Log out"
