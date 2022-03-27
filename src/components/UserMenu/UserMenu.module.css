@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.avatar {
+  margin-right: 4px;
+}
+
+.name {
+  font-weight: bold;
+  margin-right: 12px;
+}
