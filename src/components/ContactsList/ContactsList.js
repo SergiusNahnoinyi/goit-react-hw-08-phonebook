@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getVisibleContacts } from '../redux/phonebook-selectors';
-import * as actions from '../redux/phonebook-actions';
+import contactsOperations from '../redux/phonebook-operations';
 
 import s from './Contacts.module.css';
 
@@ -8,7 +8,7 @@ export default function ContactsList() {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
 
-  const onDelete = id => dispatch(actions.deleteContact(id));
+  const onDelete = id => dispatch(contactsOperations.deleteContact(id));
 
   return (
     <ul className={s.list}>

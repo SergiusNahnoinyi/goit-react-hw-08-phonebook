@@ -16,7 +16,7 @@ export default function UserMenu() {
         alt="Avatar"
         width={32}
       />
-      <span className={s.name}>Добро пожаловать, {name}</span>
+      <span className={s.name}>Welcome, {name}</span>
       <button
         className={s.button}
         onClick={() => dispatch(authOperations.logOut())}

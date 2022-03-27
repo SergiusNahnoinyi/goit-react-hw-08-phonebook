@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../redux/phonebook-actions';
+import contactsOperations from '../redux/phonebook-operations';
 import { getContacts } from '../redux/phonebook-selectors';
 
 import s from './Form.module.css';
@@ -36,7 +36,7 @@ export default function ContactsForm() {
 
     if (similarContact) {
       return toast.error(`${similarContact.name} is already in your list`);
-    } else dispatch(actions.addContact(name, number));
+    } else dispatch(contactsOperations.addContact(name, number));
 
     setName('');
     setNumber('');

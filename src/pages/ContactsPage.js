@@ -1,4 +1,7 @@
 import { ToastContainer } from 'react-toastify';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import contactsOperations from '../components/redux/phonebook-operations';
 
 import ContactsForm from '../components/ContactsForm';
 import Filter from '../components/Filter';
@@ -8,6 +11,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import s from './ContactsPage.module.css';
 
 export default function ContactsPage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
+
   return (
     <main>
       <section className={s.phonebook}>
