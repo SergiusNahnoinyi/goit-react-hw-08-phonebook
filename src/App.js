@@ -7,6 +7,8 @@ import { lazy, Suspense } from 'react';
 
 import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage'));
@@ -26,9 +28,30 @@ export default function App() {
       <Suspense fallback="Loading...">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </Container>
