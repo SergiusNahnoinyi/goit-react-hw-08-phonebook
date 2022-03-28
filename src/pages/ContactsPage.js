@@ -1,4 +1,3 @@
-import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import contactsOperations from '../components/redux/phonebook-operations';
@@ -24,7 +23,6 @@ export default function ContactsPage() {
         <h2 className={s.title}>Contacts</h2>
         <Filter />
         <ContactsList />
-        <ToastContainer />
       </section>
     </main>
   );

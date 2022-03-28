@@ -4,6 +4,8 @@ import { authOperations } from './components/redux/auth';
 
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Container from './components/Container/Container';
 import AppBar from './components/AppBar/AppBar';
@@ -54,6 +56,7 @@ export default function App() {
           />
         </Routes>
       </Suspense>
+      <ToastContainer />
     </Container>
   );
 }

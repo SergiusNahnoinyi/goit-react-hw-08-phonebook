@@ -54,6 +54,7 @@ export default function LoginPage() {
               value={name}
               onChange={handleChange}
               placeholder="Write down your name"
+              autoComplete="off"
               required
             />
           </label>
@@ -66,6 +67,7 @@ export default function LoginPage() {
               value={email}
               onChange={handleChange}
               placeholder="Write down your e-mail"
+              autoComplete="off"
               required
             />
           </label>
@@ -78,6 +80,7 @@ export default function LoginPage() {
               value={password}
               onChange={handleChange}
               placeholder="Write down your password"
+              autoComplete="off"
               required
             />
           </label>
