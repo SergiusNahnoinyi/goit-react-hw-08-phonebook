@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { authOperations } from './redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from './redux/auth';
 
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
@@ -19,44 +19,47 @@ const LoginPage = lazy(() => import('./pages/LoginPage'));
 
 export default function App() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(authSelectors.getLoading);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <Container>
-      <AppBar />
-      <Suspense fallback="Loading...">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="contacts"
-            element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="register"
-            element={
-              <PublicRoute>
-                <RegisterPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="login"
-            element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-        </Routes>
-      </Suspense>
-      <ToastContainer />
-    </Container>
+    !isLoading && (
+      <Container>
+        <AppBar />
+        <Suspense fallback="Loading...">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="contacts"
+              element={
+                <PrivateRoute>
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <PublicRoute>
+                  <RegisterPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="login"
+              element={
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
+        <ToastContainer />
+      </Container>
+    )
   );
 }
