@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from './components/redux/auth';
+import { authOperations } from './redux/auth';
 
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';

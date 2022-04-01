@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { useSelector, useDispatch } from 'react-redux';
-import contactsOperations from '../redux/phonebook-operations';
-import { getContacts } from '../redux/phonebook-selectors';
+import contactsOperations from '../../redux/phonebook-operations';
+import { getContacts } from '../../redux/phonebook-selectors';
 
 import s from './Form.module.css';
 

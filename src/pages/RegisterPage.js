@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { authOperations } from '../components/redux/auth';
+import { authOperations } from '../redux/auth';
 
 import s from './RegisterPage.module.css';
 
